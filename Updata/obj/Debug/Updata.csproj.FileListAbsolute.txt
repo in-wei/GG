@@ -1,0 +1,11 @@
+D:\Code\C#\NtmcReportProgram3\0_NTMC_Volume_Report\Updata.exe.config
+D:\Code\C#\NtmcReportProgram3\0_NTMC_Volume_Report\Updata.exe
+D:\Code\C#\NtmcReportProgram3\0_NTMC_Volume_Report\Updata.pdb
+D:\Code\C#\NtmcReportProgram3\Updata\obj\Debug\Updata.csproj.AssemblyReference.cache
+D:\Code\C#\NtmcReportProgram3\Updata\obj\Debug\Updata.csproj.SuggestedBindingRedirects.cache
+D:\Code\C#\NtmcReportProgram3\Updata\obj\Debug\Updata.Updata.resources
+D:\Code\C#\NtmcReportProgram3\Updata\obj\Debug\Updata.Properties.Resources.resources
+D:\Code\C#\NtmcReportProgram3\Updata\obj\Debug\Updata.csproj.GenerateResource.cache
+D:\Code\C#\NtmcReportProgram3\Updata\obj\Debug\Updata.csproj.CoreCompileInputs.cache
+D:\Code\C#\NtmcReportProgram3\Updata\obj\Debug\Updata.exe
+D:\Code\C#\NtmcReportProgram3\Updata\obj\Debug\Updata.pdb
