@@ -1,0 +1,6 @@
+===== Creat Log File Success！ =====
+2024-03-04 11:24:46.48	[.ctor                         ]	==程式啟動==
+2024-03-04 11:24:46.48	[.ctor                         ]	This Program Last Write Time： 2024/3/4 上午 11:24:29
+2024-03-04 11:24:46.60	[DateTimePicker1_ValueChanged  ]	營運日更動:2024/03/03
+2024-03-04 11:24:46.60	[DateTimePicker2_ValueChanged  ]	清分日更動:2024/03/04
+2024-03-04 11:25:23.46	[Form_Close                    ]	程式關閉
