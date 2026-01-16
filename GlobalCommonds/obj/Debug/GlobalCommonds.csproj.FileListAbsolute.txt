@@ -1,0 +1,4 @@
+D:\Code\C#\NtmcReportProgram1\GlobalCommonds\obj\Debug\GlobalCommonds.csproj.AssemblyReference.cache
+D:\Code\C#\NtmcReportProgram1\GlobalCommonds\obj\Debug\GlobalCommonds.Properties.Resources.resources
+D:\Code\C#\NtmcReportProgram1\GlobalCommonds\obj\Debug\GlobalCommonds.csproj.GenerateResource.cache
+D:\Code\C#\NtmcReportProgram1\GlobalCommonds\obj\Debug\GlobalCommonds.csproj.CoreCompileInputs.cache
