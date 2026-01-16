@@ -1,0 +1,12 @@
+D:\Code\C#\NtmcReportProgram3\0_NTMC_Volume_Report\WatchApp.exe.config
+D:\Code\C#\NtmcReportProgram3\0_NTMC_Volume_Report\WatchApp.exe
+D:\Code\C#\NtmcReportProgram3\0_NTMC_Volume_Report\WatchApp.pdb
+D:\Code\C#\NtmcReportProgram3\WatchApp\obj\Debug\WatchApp.csproj.AssemblyReference.cache
+D:\Code\C#\NtmcReportProgram3\WatchApp\obj\Debug\WatchApp.csproj.SuggestedBindingRedirects.cache
+D:\Code\C#\NtmcReportProgram3\WatchApp\obj\Debug\WatchApp.WatchApp.resources
+D:\Code\C#\NtmcReportProgram3\WatchApp\obj\Debug\WatchApp.Properties.Resources.resources
+D:\Code\C#\NtmcReportProgram3\WatchApp\obj\Debug\WatchApp.csproj.GenerateResource.cache
+D:\Code\C#\NtmcReportProgram3\WatchApp\obj\Debug\WatchApp.csproj.CoreCompileInputs.cache
+D:\Code\C#\NtmcReportProgram3\WatchApp\obj\Debug\WatchApp.csproj.CopyComplete
+D:\Code\C#\NtmcReportProgram3\WatchApp\obj\Debug\WatchApp.exe
+D:\Code\C#\NtmcReportProgram3\WatchApp\obj\Debug\WatchApp.pdb
