@@ -381,16 +381,16 @@ namespace Report.Mrt.UI
 
         private void AutoCheck()
         {
-            //checkBox1.Checked = true;
-            //checkBox2.Checked = true;
-            //checkBox3.Checked = true;
-            ////checkBox4.Checked = true;
-            //checkBox5.Checked = true;
-            //checkBox6.Checked = true;
-            //checkBox7.Checked = true;
+            checkBox1.Checked = true;
+            checkBox2.Checked = true;
+            checkBox3.Checked = true;
+            //checkBox4.Checked = true;
+            checkBox5.Checked = true;
+            checkBox6.Checked = true;
+            checkBox7.Checked = true;
             checkBox8.Checked = true;
-            //checkBox9.Checked = true;
-            ////checkBox10.Checked = true;
+            checkBox9.Checked = true;
+            //checkBox10.Checked = true;
         }
 
         #endregion

@@ -481,7 +481,7 @@ namespace Report.Mrt
                         from p in MainServer.TxnAllData
                         where
                             (
-                                MainServer.globalCommond.Stock_Mrt_Y_StationOd.FindIndex(x => x.ExitStation == p.SVCE_LOC_ID && x.IsCount == "Y") != -1
+                                MainServer.globalCommond.Stock_Mrt_Y_OdList.FindIndex(x => x.Exit == p.SVCE_LOC_ID && x.IsPass == "Y") != -1
                                 || mStation_0.Contains(Convert.ToInt16(p.SVCE_LOC_ID))
                             )
                             && Convert.ToDateTime(p.TXN_TIMESTAMP) >= MainServer.OperationDate
@@ -592,6 +592,7 @@ namespace Report.Mrt
                     CTime = EndTime - StartTime;
                     CountExit = RideCountAdd - RideCountMinus;
                     ExitAmt = AmtAdd - AmtMinus;
+                    MyCommond.WriteLog(ThisReceive, $"簡易資料計算 - 結束");
                     Status = StatusEnum.Finish;
                     return;
                     ///MessageBox.Show($"計算時間:{CTime}\n" +
@@ -817,7 +818,7 @@ namespace Report.Mrt
                         from p in MainServer.TxnAllData
                         where
                             (
-                                MainServer.globalCommond.Stock_Mrt_Y_StationOd.FindIndex(x => x.ExitStation == p.SVCE_LOC_ID && x.IsCount == "Y") != -1
+                                MainServer.globalCommond.Stock_Mrt_Y_OdList.FindIndex(x => x.Exit == p.SVCE_LOC_ID && x.IsPass == "Y") != -1
                                 || mStation_0.Contains(Convert.ToInt16(p.SVCE_LOC_ID))
                             )
                             //MainServer.Stock_Mrt_StationOd.Find(x => 
@@ -1065,7 +1066,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, $"ERROR!\t");
+                //throw ex;
             }
             MyCommond.WriteLog(ThisReceive, $"簡易資料計算 - 結束");
             Status = StatusEnum.Finish;
@@ -1102,7 +1104,7 @@ namespace Report.Mrt
                     from p in MainServer.TxnAllData
                     where
                         (
-                            MainServer.globalCommond.Stock_Mrt_Y_StationOd.FindIndex(x => x.ExitStation == p.SVCE_LOC_ID && x.IsCount == "Y") != -1
+                            MainServer.globalCommond.Stock_Mrt_Y_OdList.FindIndex(x => x.Exit == p.SVCE_LOC_ID && x.IsPass == "Y") != -1
                             || mStation_0.Contains(Convert.ToInt16(p.SVCE_LOC_ID))
                         )
                         && Convert.ToDateTime(p.TXN_TIMESTAMP) >= MainServer.OperationDate
@@ -1137,7 +1139,7 @@ namespace Report.Mrt
                     from p in MainServer.TxnAllData
                     where
                         (
-                            MainServer.globalCommond.Stock_Mrt_Y_StationOd.FindIndex(x => x.ExitStation == p.SVCE_LOC_ID && x.IsCount == "Y") != -1
+                            MainServer.globalCommond.Stock_Mrt_Y_OdList.FindIndex(x => x.Exit == p.SVCE_LOC_ID && x.IsPass == "Y") != -1
                             || mStation_0.Contains(Convert.ToInt16(p.SVCE_LOC_ID))
                         )
                         && Convert.ToDateTime(p.TXN_TIMESTAMP) >= MainServer.OperationDate
@@ -1172,7 +1174,7 @@ namespace Report.Mrt
                     from p in MainServer.TxnAllData
                     where
                         (
-                            MainServer.globalCommond.Stock_Mrt_Y_StationOd.FindIndex(x => x.ExitStation == p.SVCE_LOC_ID && x.IsCount == "Y") != -1
+                            MainServer.globalCommond.Stock_Mrt_Y_OdList.FindIndex(x => x.Exit == p.SVCE_LOC_ID && x.IsPass == "Y") != -1
                             || mStation_0.Contains(Convert.ToInt16(p.SVCE_LOC_ID))
                         )
                         && Convert.ToDateTime(p.TXN_TIMESTAMP) >= MainServer.OperationDate
@@ -1207,7 +1209,7 @@ namespace Report.Mrt
                         from p in MainServer.TxnAllData
                         where
                             (
-                                MainServer.globalCommond.Stock_Mrt_Y_StationOd.FindIndex(x => x.ExitStation == p.SVCE_LOC_ID && x.IsCount == "Y") != -1
+                                MainServer.globalCommond.Stock_Mrt_Y_OdList.FindIndex(x => x.Exit == p.SVCE_LOC_ID && x.IsPass == "Y") != -1
                                 || mStation_0.Contains(Convert.ToInt16(p.SVCE_LOC_ID))
                             )
                             && Convert.ToDateTime(p.TXN_TIMESTAMP) >= MainServer.OperationDate
@@ -1242,7 +1244,7 @@ namespace Report.Mrt
                         from p in MainServer.TxnAllData
                         where
                             (
-                                MainServer.globalCommond.Stock_Mrt_Y_StationOd.FindIndex(x => x.ExitStation == p.SVCE_LOC_ID && x.IsCount == "Y") != -1
+                                MainServer.globalCommond.Stock_Mrt_Y_OdList.FindIndex(x => x.Exit == p.SVCE_LOC_ID && x.IsPass == "Y") != -1
                                 || mStation_0.Contains(Convert.ToInt16(p.SVCE_LOC_ID))
                             )
                             && Convert.ToDateTime(p.TXN_TIMESTAMP) >= MainServer.OperationDate
@@ -1277,7 +1279,7 @@ namespace Report.Mrt
                         from p in MainServer.TxnAllData
                         where
                             (
-                                MainServer.globalCommond.Stock_Mrt_Y_StationOd.FindIndex(x => x.ExitStation == p.SVCE_LOC_ID && x.IsCount == "Y") != -1
+                                MainServer.globalCommond.Stock_Mrt_Y_OdList.FindIndex(x => x.Exit == p.SVCE_LOC_ID && x.IsPass == "Y") != -1
                                 || mStation_0.Contains(Convert.ToInt16(p.SVCE_LOC_ID))
                             )
                             && Convert.ToDateTime(p.TXN_TIMESTAMP) >= MainServer.OperationDate
@@ -1312,7 +1314,7 @@ namespace Report.Mrt
                     from p in MainServer.TxnAllData
                     where
                         (
-                            MainServer.globalCommond.Stock_Mrt_Y_StationOd.FindIndex(x => x.ExitStation == p.SVCE_LOC_ID && x.IsCount == "Y") != -1
+                            MainServer.globalCommond.Stock_Mrt_Y_OdList.FindIndex(x => x.Exit == p.SVCE_LOC_ID && x.IsPass == "Y") != -1
                             || mStation_0.Contains(Convert.ToInt16(p.SVCE_LOC_ID))
                         )
                         && Convert.ToDateTime(p.TXN_TIMESTAMP) >= MainServer.OperationDate
@@ -1345,7 +1347,7 @@ namespace Report.Mrt
                     from p in MainServer.TxnAllData
                     where
                         (
-                            MainServer.globalCommond.Stock_Mrt_Y_StationOd.FindIndex(x => x.ExitStation == p.SVCE_LOC_ID && x.IsCount == "Y") != -1
+                            MainServer.globalCommond.Stock_Mrt_Y_OdList.FindIndex(x => x.Exit == p.SVCE_LOC_ID && x.IsPass == "Y") != -1
                             || mStation_0.Contains(Convert.ToInt16(p.SVCE_LOC_ID))
                         )
                     group p by new
@@ -1390,7 +1392,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
             MyCommond.WriteLog(ThisReceive, $"各交易資料 - 結束");
             Status = StatusEnum.Finish;
@@ -1584,7 +1587,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"各進出站分類 - 結束");
@@ -1628,13 +1632,13 @@ namespace Report.Mrt
 
                 string[] TxnType_In = { "20", "151", "153", "191", "194" };
                 string[] TxnType_Out = { "1", "2", "4", "8", "13", "152", "154", "192", "195" };
-                List<MrtStationList_Old> Stock_Mrt_Station = new List<MrtStationList_Old>();
+                List<MrtStationList> Stock_Mrt_Station = new List<MrtStationList>();
                 TimeSpan OverTime;
                 
                 //因2024/04/03大地震 影響板橋至中和段段軌，以接駁車載運，計算用
                 OverTime = new TimeSpan(1, 0, 0);
-                Stock_Mrt_Station.Add(new MrtStationList_Old() { CodeName = "82", StationName = "板橋", CodeName2 = "209", StationName2 = "板橋" });
-                Stock_Mrt_Station.Add(new MrtStationList_Old() { CodeName = "205", StationName = "中和", CodeName2 = "205", StationName2 = "中和" });
+                Stock_Mrt_Station.Add(new MrtStationList() { CodeName1 = "82", StationName1 = "板橋", CodeName2 = "209", StationName2 = "板橋" });
+                Stock_Mrt_Station.Add(new MrtStationList() { CodeName1 = "205", StationName1 = "中和", CodeName2 = "205", StationName2 = "中和" });
 
                 /// //原延人里程用
                 /// Stock_Mrt_Station.Add(new MrtStationList_Old() { CodeName = "82", StationName = "板橋", CodeName2 = "209", StationName2 = "板橋" });
@@ -1666,7 +1670,7 @@ namespace Report.Mrt
                         else if (StockTxn_2 == null)
                         {
                             bool B_Time = (Convert.ToDateTime(StockTxn_1.TXN_TIMESTAMP) - Convert.ToDateTime(item.TXN_TIMESTAMP)) < OverTime;
-                            bool B_Station = MainServer.globalCommond.Stock_Mrt_Y_Station_Old.Find(x => x.CodeName == StockTxn_1.SVCE_LOC_ID && x.CodeName2 == item.SVCE_LOC_ID) != null;
+                            bool B_Station = MainServer.globalCommond.Stock_Mrt_Y_Station.Find(x => x.CodeName1 == StockTxn_1.SVCE_LOC_ID && x.CodeName2 == item.SVCE_LOC_ID) != null;
 
                             if (B_Time && B_Station) { Console.WriteLine("In_2-1"); StockTxn_2 = item; }
                             else { Console.WriteLine("In_2-2"); StockTxn_1 = null; }
@@ -1737,7 +1741,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
         CalculatorEnd:
@@ -1807,7 +1812,7 @@ namespace Report.Mrt
                 List<TxnTransaction> StockExportTxn_2 = new List<TxnTransaction>();  // 存放合併的資料
                 List<TxnTransaction> StockExportTxn_3 = new List<TxnTransaction>();  // 存放異常資料
 
-                List<MrtStationList_Old> Stock_Mrt_Station = new List<MrtStationList_Old>();
+                List<MrtStationList> Stock_Mrt_Station = new List<MrtStationList>();
                 TimeSpan OverTime;
 
                 OverTime = new TimeSpan(1, 0, 0);
@@ -1815,11 +1820,11 @@ namespace Report.Mrt
                 string[] TxnType_In = { "20" };
                 string[] TxnType_Out = { "1", "4", "8", "13" };
 
-                Stock_Mrt_Station.Add(new MrtStationList_Old() { CodeName = "82", StationName = "板橋", CodeName2 = "205", StationName2 = "中和" });
-                Stock_Mrt_Station.Add(new MrtStationList_Old() { CodeName = "209", StationName = "板橋", CodeName2 = "205", StationName2 = "中和" });
+                Stock_Mrt_Station.Add(new MrtStationList() { CodeName1 = "82", StationName1 = "板橋", CodeName2 = "205", StationName2 = "中和" });
+                Stock_Mrt_Station.Add(new MrtStationList() { CodeName1 = "209", StationName1 = "板橋", CodeName2 = "205", StationName2 = "中和" });
 
-                Stock_Mrt_Station.Add(new MrtStationList_Old() { CodeName = "205", StationName = "中和", CodeName2 = "209", StationName2 = "板橋" });
-                Stock_Mrt_Station.Add(new MrtStationList_Old() { CodeName = "205", StationName = "中和", CodeName2 = "82", StationName2 = "板橋" });
+                Stock_Mrt_Station.Add(new MrtStationList() { CodeName1 = "205", StationName1 = "中和", CodeName2 = "209", StationName2 = "板橋" });
+                Stock_Mrt_Station.Add(new MrtStationList() { CodeName1 = "205", StationName1 = "中和", CodeName2 = "82", StationName2 = "板橋" });
 
 
                 int StepCount = 0;
@@ -1839,11 +1844,11 @@ namespace Report.Mrt
                     if (FindIn)
                     {
                         if (StockTxn_1 != null) OnTime = (Convert.ToDateTime(item.TXN_TIMESTAMP) - Convert.ToDateTime(StockTxn_1.TXN_TIMESTAMP)) <= OverTime;
-                        FindStation_In = Stock_Mrt_Station.Find(x => x.CodeName == item.SVCE_LOC_ID) != null; 
+                        FindStation_In = Stock_Mrt_Station.Find(x => x.CodeName1 == item.SVCE_LOC_ID) != null; 
                     }
                     if (FindOut)
                     {
-                        FindStation_Out = Stock_Mrt_Station.Find(x => x.CodeName == item.SVCE_LOC_ID) != null;
+                        FindStation_Out = Stock_Mrt_Station.Find(x => x.CodeName1 == item.SVCE_LOC_ID) != null;
                     }
 
                     Console.WriteLine($"進站 {FindIn}, 出站 {FindOut}, 進車站 {FindStation_In}, 出車站 {FindStation_Out}, 時間內 {OnTime}");
@@ -1854,7 +1859,7 @@ namespace Report.Mrt
                     }
                     else if (StockTxn_1 != null && StockTxn_2 == null && FindIn && FindStation_In && OnTime)
                     {
-                        bool MaybeTransfare = Stock_Mrt_Station.Find(x => x.CodeName == item.SVCE_LOC_ID && x.CodeName2 == StockTxn_1.SVCE_LOC_ID) != null;
+                        bool MaybeTransfare = Stock_Mrt_Station.Find(x => x.CodeName1 == item.SVCE_LOC_ID && x.CodeName2 == StockTxn_1.SVCE_LOC_ID) != null;
                         if (MaybeTransfare)
                         {
                             MyCommond.WriteLog(ThisReceive, $"疑似轉乘:");
@@ -1921,7 +1926,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
         }
@@ -2178,7 +2184,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
         ThisEnd:
@@ -2254,7 +2261,7 @@ namespace Report.Mrt
                             else { msg2 = $", Station Comparison False"; }
                         }
                         else { msg2 = $",    Time Comparison False"; }
-                        MyCommond.WriteLog(ThisReceive, msg1 + msg2);
+                        if (msg2 != "") MyCommond.WriteLog(ThisReceive, msg1 + msg2);
                     }
                 }
 
@@ -2266,36 +2273,58 @@ namespace Report.Mrt
                 if (!(MyCommond.CheckFile(path_ + OperationDate.ToString("yyyy-MM") + "_1200退票.csv"))) MyCommond.ExportData(path_ + OperationDate.ToString("yyyy-MM") + "_1200退票.csv", Encoding.UTF8, (new TxnTransaction()).ExportTitle_English());
                 if (!(MyCommond.CheckFile(path_ + OperationDate.ToString("yyyy-MM") + "_1200取消.csv"))) MyCommond.ExportData(path_ + OperationDate.ToString("yyyy-MM") + "_1200取消.csv", Encoding.UTF8, (new TxnTransaction()).ExportTitle_English());
 
-                List<TxnTransaction> TxnType_Set =
-                    (from p in mTransaction
-                     where p.CARD_TXN_TYPE_ID == "3" && p.FARE_PRODUCT_TYPE_ID == "75"
-                     select p).ToList();
-                foreach (var item in TxnType_Set)
+                try
                 {
-                    MyCommond.ExportData(path_ + OperationDate.ToString("yyyy-MM") + "_1200設定.csv", Encoding.UTF8, item.ToString());
+                    List<TxnTransaction> TxnType_Set =
+                        (from p in mTransaction
+                         where p.CARD_TXN_TYPE_ID == "3" && p.FARE_PRODUCT_TYPE_ID == "75"
+                         select p).ToList();
+                    foreach (var item in TxnType_Set)
+                    {
+                        MyCommond.ExportData(path_ + OperationDate.ToString("yyyy-MM") + "_1200設定.csv", Encoding.UTF8, item.ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MyCommond.WriteLog(ThisReceive, $"ERROR!\t1200設定資料異常");
                 }
 
-                List<TxnTransaction> TxnType_Refund =
-                    (from p in mTransaction
-                     where p.CARD_TXN_TYPE_ID == "6" && p.FARE_PRODUCT_TYPE_ID == "75"
-                     select p).ToList();
-                foreach (var item in TxnType_Refund)
+                try
                 {
-                    MyCommond.ExportData(path_ + OperationDate.ToString("yyyy-MM") + "_1200退票.csv", Encoding.UTF8, item.ToString());
+                    List<TxnTransaction> TxnType_Refund =
+                        (from p in mTransaction
+                         where p.CARD_TXN_TYPE_ID == "6" && p.FARE_PRODUCT_TYPE_ID == "75"
+                         select p).ToList();
+                    foreach (var item in TxnType_Refund)
+                    {
+                        MyCommond.ExportData(path_ + OperationDate.ToString("yyyy-MM") + "_1200退票.csv", Encoding.UTF8, item.ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MyCommond.WriteLog(ThisReceive, $"ERROR!\t1200退票資料異常");
                 }
 
-                List<TxnTransaction> TxnType_Cancel =
-                    (from p in mTransaction
-                     where p.CARD_TXN_TYPE_ID == "10" && p.FARE_PRODUCT_TYPE_ID == "75"
-                     select p).ToList();
-                foreach (var item in TxnType_Cancel)
+                try
                 {
-                    MyCommond.ExportData(path_ + OperationDate.ToString("yyyy-MM") + "_1200取消.csv", Encoding.UTF8, item.ToString());
+                    List<TxnTransaction> TxnType_Cancel =
+                        (from p in mTransaction
+                         where p.CARD_TXN_TYPE_ID == "10" && p.FARE_PRODUCT_TYPE_ID == "75"
+                         select p).ToList();
+                    foreach (var item in TxnType_Cancel)
+                    {
+                        MyCommond.ExportData(path_ + OperationDate.ToString("yyyy-MM") + "_1200取消.csv", Encoding.UTF8, item.ToString());
+                    }
                 }
+                catch (Exception ex)
+                {
+                    MyCommond.WriteLog(ThisReceive, $"ERROR!\t1200取消資料異常");
+                }
+
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, $"ERROR!\t1200取得交易資料異常");
             }
 
             DateTime EndTime = DateTime.Now;
@@ -2353,7 +2382,8 @@ namespace Report.Mrt
                     }
                     catch (Exception ex)
                     {
-                        throw ex;
+                        MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                        //throw ex;
                     }
                 });
                 thread.Start();
@@ -2416,7 +2446,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             string exportpath = MyCommond.Path_Program 
@@ -2506,7 +2537,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
 
@@ -2542,10 +2574,11 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
-            jjmp:
+        jjmp:
             string exportpath = MyCommond.Path_Program
                 + MyCommond.Path_Report
                 + @"環狀線\"
@@ -2574,7 +2607,7 @@ namespace Report.Mrt
         {
             var MethodeName = LrtTxnClientSwitch.Day_EachStation_EachTime;
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
-            var stationCounts = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company == "新北捷運").ToList();
+            var stationCounts = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company1 == "新北捷運").ToList();
 
             var mYear = ((Convert.ToInt32(MainServer.OperationDate.ToString("yyyy")) > 1911) ? (Convert.ToInt32(MainServer.OperationDate.ToString("yyyy")) - 1911) : Convert.ToInt32(MainServer.OperationDate.ToString("yyyy"))).ToString();
             var mMonth = MainServer.OperationDate.ToString("MM");
@@ -2622,9 +2655,9 @@ namespace Report.Mrt
                     int Offset_Row_Entry = (temp_Hour_Entry - temp_Start_Hour >= 0) ? temp_Hour_Entry - temp_Start_Hour : temp_Day_Hour + temp_Hour_Entry - temp_Start_Hour;
                     int Offset_Column_Entry = data.GetLength(0) - 1;
 
-                    if (item.M_Entry != "NULL") { Offset_Column_Entry = stationCounts.FindIndex(x => x.StationName == item.M_Entry); }
-                    if (Offset_Column_Entry == -1) { Offset_Column_Entry = stationCounts.FindIndex(x => x.StationName == $"Y{item.M_Entry}"); }
-                    if (Offset_Column_Entry == -1) { Offset_Column_Entry = stationCounts.FindIndex(x => x.StationName == $"{item.M_Entry}民生"); }
+                    if (item.M_Entry != "NULL") { Offset_Column_Entry = stationCounts.FindIndex(x => x.StationName1 == item.M_Entry); }
+                    if (Offset_Column_Entry == -1) { Offset_Column_Entry = stationCounts.FindIndex(x => x.StationName1 == $"Y{item.M_Entry}"); }
+                    if (Offset_Column_Entry == -1) { Offset_Column_Entry = stationCounts.FindIndex(x => x.StationName1 == $"{item.M_Entry}民生"); }
                     if (Offset_Column_Entry != -1)
                     {
 
@@ -2636,9 +2669,9 @@ namespace Report.Mrt
                     var Offset_Row_Exit_ = (temp_Hour_Exit_ - temp_Start_Hour >= 0) ? temp_Hour_Exit_ - temp_Start_Hour : temp_Day_Hour + temp_Hour_Exit_ - temp_Start_Hour;
                     int Offset_Column_Exit_ = data.GetLength(1) - 1;
 
-                    if (item.M_Exit != "NULL") Offset_Column_Exit_ = stationCounts.FindIndex(x => x.StationName == item.M_Exit);
-                    if (Offset_Column_Exit_ == -1) Offset_Column_Exit_ = stationCounts.FindIndex(x => x.StationName == $"Y{item.M_Exit}");
-                    if (Offset_Column_Exit_ == -1) Offset_Column_Exit_ = stationCounts.FindIndex(x => x.StationName == $"{item.M_Exit}民生");
+                    if (item.M_Exit != "NULL") Offset_Column_Exit_ = stationCounts.FindIndex(x => x.StationName1 == item.M_Exit);
+                    if (Offset_Column_Exit_ == -1) Offset_Column_Exit_ = stationCounts.FindIndex(x => x.StationName1 == $"Y{item.M_Exit}");
+                    if (Offset_Column_Exit_ == -1) Offset_Column_Exit_ = stationCounts.FindIndex(x => x.StationName1 == $"{item.M_Exit}民生");
                     if (Offset_Column_Entry != -1)
                     {
 
@@ -2697,7 +2730,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             //輸出報表
@@ -2719,7 +2753,7 @@ namespace Report.Mrt
         {
             var MethodeName = LrtTxnClientSwitch.Day_ElectronicTicket;
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
-            var stationCounts = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company == "新北捷運").ToList();
+            var stationCounts = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company1 == "新北捷運").ToList();
             var ColumnString = MainServer.globalCommond.Stock_Mrt_TicketType.FindAll(x => x.Check == "o").ToList();
             double[,] rd = new double[stationCounts.Count, ColumnString.Count * 2];
 
@@ -2744,9 +2778,9 @@ namespace Report.Mrt
                     int Offset_Row_Entry = -1;
                     try
                     {
-                        if (item.M_Entry != "NULL") { Offset_Row_Entry = stationCounts.FindIndex(x => x.StationName == item.M_Entry); }
-                        if (Offset_Row_Entry == -1) { Offset_Row_Entry = stationCounts.FindIndex(x => x.StationName == $"Y{item.M_Entry}"); }
-                        if (Offset_Row_Entry == -1) { Offset_Row_Entry = stationCounts.FindIndex(x => x.StationName == $"{item.M_Entry}民生"); }
+                        if (item.M_Entry != "NULL") { Offset_Row_Entry = stationCounts.FindIndex(x => x.StationName1 == item.M_Entry); }
+                        if (Offset_Row_Entry == -1) { Offset_Row_Entry = stationCounts.FindIndex(x => x.StationName1 == $"Y{item.M_Entry}"); }
+                        if (Offset_Row_Entry == -1) { Offset_Row_Entry = stationCounts.FindIndex(x => x.StationName1 == $"{item.M_Entry}民生"); }
                         if (Offset_Row_Entry != -1) { }
 
                     }
@@ -2758,9 +2792,9 @@ namespace Report.Mrt
                     int Offset_Row_Exit = -1;
                     try
                     {
-                        if (item.M_Entry != "NULL") { Offset_Row_Exit = stationCounts.FindIndex(x => x.StationName == item.M_Exit); }
-                        if (Offset_Row_Exit == -1) { Offset_Row_Exit = stationCounts.FindIndex(x => x.StationName == $"Y{item.M_Exit}"); }
-                        if (Offset_Row_Exit == -1) { Offset_Row_Exit = stationCounts.FindIndex(x => x.StationName == $"{item.M_Exit}民生"); }
+                        if (item.M_Entry != "NULL") { Offset_Row_Exit = stationCounts.FindIndex(x => x.StationName1 == item.M_Exit); }
+                        if (Offset_Row_Exit == -1) { Offset_Row_Exit = stationCounts.FindIndex(x => x.StationName1 == $"Y{item.M_Exit}"); }
+                        if (Offset_Row_Exit == -1) { Offset_Row_Exit = stationCounts.FindIndex(x => x.StationName1 == $"{item.M_Exit}民生"); }
                         if (Offset_Row_Exit != -1) { }
                     }
                     catch (Exception ex)
@@ -2785,7 +2819,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
             string exportpath = MyCommond.Path_Program + MyCommond.Path_Report + @"環狀線\" + string.Format(MyCommond.Path_Date, MainServer.OperationDate.ToString("yyyy.MM.dd"));
             string exportfilename = MyCommond.CheckAndReName(exportpath, new ExportConfig()
@@ -2818,7 +2853,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 結束");
@@ -2847,8 +2883,8 @@ namespace Report.Mrt
                 string[,] ODReport_A = new string[stationCounts_A + 2, stationCounts_A + 2];
                 for (int i = 0; i < stationCounts_A; i++)
                 {
-                    ODReport_A[0, i + 1] = MainServer.globalCommond.Stock_Mrt_Y_Station[i].StationName;
-                    ODReport_A[i + 1, 0] = MainServer.globalCommond.Stock_Mrt_Y_Station[i].StationName;
+                    ODReport_A[0, i + 1] = MainServer.globalCommond.Stock_Mrt_Y_Station[i].StationName1;
+                    ODReport_A[i + 1, 0] = MainServer.globalCommond.Stock_Mrt_Y_Station[i].StationName1;
                 }
                 ODReport_A[0, ODReport_A.GetLength(1) - 1] = "NULL";
                 ODReport_A[ODReport_A.GetLength(0) - 1, 0] = "NULL";
@@ -2865,8 +2901,8 @@ namespace Report.Mrt
                             if (false) MyCommond.WriteLog(ThisReceive, item.ToString());
                             int EntryIndex = ODReport_A.GetLength(0) - 1;
                             int ExitIndex = ODReport_A.GetLength(1) - 1;
-                            if (item.ENTRY_LOC_ID != "NULL") EntryIndex = MainServer.globalCommond.Stock_Mrt_Y_Station.FindIndex(x => x.StationName == item.ENTRY_LOC_ID) + 1;
-                            if (item.SVCE_LOC_ID != "NULL") ExitIndex = MainServer.globalCommond.Stock_Mrt_Y_Station.FindIndex(x => x.StationName == item.SVCE_LOC_ID) + 1;
+                            if (item.ENTRY_LOC_ID != "NULL") EntryIndex = MainServer.globalCommond.Stock_Mrt_Y_Station.FindIndex(x => x.StationName1 == item.ENTRY_LOC_ID) + 1;
+                            if (item.SVCE_LOC_ID != "NULL") ExitIndex = MainServer.globalCommond.Stock_Mrt_Y_Station.FindIndex(x => x.StationName1 == item.SVCE_LOC_ID) + 1;
                             if (EntryIndex == 0 || ExitIndex == 0)
                             {
                                 MyCommond.WriteLog(ThisReceive, $"Error! EntryIndex:{EntryIndex,4}, ExitIndex:{ExitIndex,4}");
@@ -2902,13 +2938,13 @@ namespace Report.Mrt
                 #region 小OD表_一般
             //GetSmallOD:
                 MyCommond.WriteLog(ThisReceive, $"小OD表輸出");
-                var stationCounts = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company == "新北捷運");
+                var stationCounts = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company1 == "新北捷運");
                 MyCommond.WriteLog(ThisReceive, $"取得新北捷運車站數量:{stationCounts.Count}");
                 string[,] ODReport = new string[stationCounts.Count + 2, stationCounts.Count + 2];
                 for (int i = 0; i < stationCounts.Count; i++)
                 {
-                    ODReport[0, i + 1] = stationCounts[i].StationName;
-                    ODReport[i + 1, 0] = stationCounts[i].StationName;
+                    ODReport[0, i + 1] = stationCounts[i].StationName1;
+                    ODReport[i + 1, 0] = stationCounts[i].StationName1;
                 }
                 ODReport[0, ODReport.GetLength(1) - 1] = "NULL";
                 ODReport[ODReport.GetLength(0) - 1, 0] = "NULL";
@@ -2928,10 +2964,10 @@ namespace Report.Mrt
                             if (false) MyCommond.WriteLog(ThisReceive, item.ToString());
                             int EntryIndex = ODReport.GetLength(0) - 1;
                             int ExitIndex = ODReport.GetLength(1) - 1;
-                            if (item.M_Entry != "NULL") EntryIndex = stationCounts.FindIndex(x => x.StationName == item.M_Entry) + 1;
-                            if (item.M_Exit != "NULL") ExitIndex = stationCounts.FindIndex(x => x.StationName == item.M_Exit) + 1;
-                            if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName == $"Y{item.M_Exit}") + 1;
-                            if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName == $"{item.M_Exit}民生") + 1;
+                            if (item.M_Entry != "NULL") EntryIndex = stationCounts.FindIndex(x => x.StationName1 == item.M_Entry) + 1;
+                            if (item.M_Exit != "NULL") ExitIndex = stationCounts.FindIndex(x => x.StationName1 == item.M_Exit) + 1;
+                            if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName1 == $"Y{item.M_Exit}") + 1;
+                            if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName1 == $"{item.M_Exit}民生") + 1;
                             if (EntryIndex == 0 || ExitIndex == 0)
                             {
                                 MyCommond.WriteLog(ThisReceive, $"Error! EntryIndex:{EntryIndex,4}, ExitIndex:{ExitIndex,4}");
@@ -2969,8 +3005,8 @@ namespace Report.Mrt
                 string[,] ODReport_Planning = new string[stationCounts.Count + 2, stationCounts.Count + 2];
                 for (int i = 0; i < stationCounts.Count; i++)
                 {
-                    ODReport_Planning[0, i + 1] = stationCounts[i].StationName;
-                    ODReport_Planning[i + 1, 0] = stationCounts[i].StationName;
+                    ODReport_Planning[0, i + 1] = stationCounts[i].StationName1;
+                    ODReport_Planning[i + 1, 0] = stationCounts[i].StationName1;
                 }
                 ODReport_Planning[0, ODReport_Planning.GetLength(1) - 1] = "NULL";
                 ODReport_Planning[ODReport_Planning.GetLength(0) - 1, 0] = "NULL";
@@ -2985,10 +3021,10 @@ namespace Report.Mrt
                             if (false) MyCommond.WriteLog(ThisReceive, item.ToString());
                             int EntryIndex = ODReport_Planning.GetLength(0) - 1;
                             int ExitIndex = ODReport_Planning.GetLength(1) - 1;
-                            if (item.M_Entry != "NULL") EntryIndex = stationCounts.FindIndex(x => x.StationName == item.M_Entry) + 1;
-                            if (item.M_Exit != "NULL") ExitIndex = stationCounts.FindIndex(x => x.StationName == item.M_Exit) + 1;
-                            if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName == $"Y{item.M_Exit}") + 1;
-                            if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName == $"{item.M_Exit}民生") + 1;
+                            if (item.M_Entry != "NULL") EntryIndex = stationCounts.FindIndex(x => x.StationName1 == item.M_Entry) + 1;
+                            if (item.M_Exit != "NULL") ExitIndex = stationCounts.FindIndex(x => x.StationName1 == item.M_Exit) + 1;
+                            if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName1 == $"Y{item.M_Exit}") + 1;
+                            if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName1 == $"{item.M_Exit}民生") + 1;
                             if (EntryIndex == 0 || ExitIndex == 0)
                             {
                                 MyCommond.WriteLog(ThisReceive, $"Error! EntryIndex:{EntryIndex,4}, ExitIndex:{ExitIndex,4}");
@@ -3023,7 +3059,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             ThreadRun(List_Thread);
@@ -3044,7 +3081,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 結束");
@@ -3065,7 +3103,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3082,7 +3121,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3099,7 +3139,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3116,7 +3157,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3133,7 +3175,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3150,7 +3193,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3167,7 +3211,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3184,7 +3229,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3201,7 +3247,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3218,7 +3265,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3235,7 +3283,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3252,7 +3301,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             MyCommond.WriteLog(ThisReceive, $"{MethodeName.ToDescription()} - 開始");
@@ -3300,7 +3350,7 @@ namespace Report.Mrt
             int[] Filter_Device_Machine = new int[] { 206, 208 };
 
             // 篩選公司車站
-            List<MrtStationList> Filter_Station = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company == "新北捷運").ToList();
+            List<MrtStationList> Filter_Station = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company1 == "新北捷運").ToList();
 
             // 加值欄位位置
             List<String_String_Int_Int_Int> Report_Column_Temp = (from p in MainServer.globalCommond.Stock_Mrt_IssureCode 
@@ -3356,7 +3406,7 @@ namespace Report.Mrt
                 string temp_Filename = cheeee.ReportNameCh;
 
                 // 比對用資料
-                bool compareDataExport = false;
+                bool compareDataExport = MainServer.globalCommond.Using_Mode == ExecutionMode.Debug;
                 if (compareDataExport) MyCommond.ExportData<TxnTransaction>(ThisReceive, new ExportConfig()
                 {
                     Path1 = exportpath,
@@ -3400,7 +3450,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3420,11 +3471,10 @@ namespace Report.Mrt
             {
                 try
                 {
-                    int mRow = listRow.FindIndex(x => x.CodeName == data.SVCE_LOC_ID);
+                    int mRow = listRow.FindIndex(x => x.CodeName1 == data.SVCE_LOC_ID);
                     int mCol = listColumn.Find(x => x.Num.ToString() == data.ISSUER_ID).AddValueTag - 1;
 
-                    bool tempCheck = true;
-                    if (tempCheck) MyCommond.WriteLog(ThisReceive, $"交易車站({mRow,4}):{data.SVCE_LOC_ID,4}, 票證公司({mCol,4}):{data.ISSUER_ID,4}, Offset:{offset,4}, 交易金額:{data.TXN_AMT,6}元");
+                    if (MainServer.globalCommond.Using_Mode == ExecutionMode.Debug) MyCommond.WriteLog(ThisReceive, $"交易車站({mRow,4}):{data.SVCE_LOC_ID,4}, 票證公司({mCol,4}):{data.ISSUER_ID,4}, Offset:{offset,4}, 交易金額:{data.TXN_AMT,6}元");
 
                     if (mRow >= 0)
                     {
@@ -3463,7 +3513,7 @@ namespace Report.Mrt
 
         #endregion
 
-        #region 各家支付業者運量日報(1/10完成，1/12測試通過)
+        #region 各家支付業者運量日報(1/10完成，1/12測試通過1，(待更新代墊部分))
 
         private void Calculator_EveryIssuerAnalyze()
         {
@@ -3472,7 +3522,7 @@ namespace Report.Mrt
 
             try
             {
-                var stationCounts = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company == "新北捷運").ToList();
+                var stationCounts = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company1 == "新北捷運").ToList();
                 var ColumnString = MainServer.globalCommond.Stock_Mrt_IssureCode.FindAll(x => x.IssuerRawTag != 0);
                 double[,] rd = new double[stationCounts.Count, ColumnString.Count * 2];
 
@@ -3483,16 +3533,19 @@ namespace Report.Mrt
                 {
                     foreach (var item in data_merge0_1)
                     {
-                        int Offset_Column = -1;
-                        try
-                        {
-                            Offset_Column = ColumnString.Find(x => x.ChName == item.ISSUER_ID).IssuerRawTag;
-                            Offset_Column--;
-                        }
-                        catch (Exception ex)
-                        {
-                            MyCommond.WriteLog(ThisReceive, $"ERROR\nOffset_Column:{Offset_Column}\nitem:{item.ToString()}");
-                        }
+                        int Offset_Column = checkMobileColumn(item.ISSUER_ID, item.CARD_PHYSICAL_ID);
+
+                        if (Offset_Column < 0) MyCommond.WriteLog(ThisReceive, $"ERROR\tOffset_Column:{Offset_Column}\nitem:{item.ToString()}");
+
+                        ///try
+                        ///{
+                        ///    Offset_Column = ColumnString.Find(x => x.ChName == item.ISSUER_ID).IssuerRawTag;
+                        ///    Offset_Column--;
+                        ///}
+                        ///catch (Exception ex)
+                        ///{
+                        ///    MyCommond.WriteLog(ThisReceive, $"ERROR\tOffset_Column:{Offset_Column}\nitem:{item.ToString()}");
+                        ///}
 
                         int Offset_Row_Entry = -1;
                         try
@@ -3505,7 +3558,7 @@ namespace Report.Mrt
                         }
                         catch (Exception ex)
                         {
-                            MyCommond.WriteLog(ThisReceive, $"ERROR\nOffset_Row_Entry:{Offset_Row_Entry}\nitem:{item.ToString()}");
+                            MyCommond.WriteLog(ThisReceive, $"ERROR\tOffset_Row_Entry:{Offset_Row_Entry}\nitem:{item.ToString()}");
                         }
 
                         int Offset_Row_Exit = -1;
@@ -3519,9 +3572,10 @@ namespace Report.Mrt
                         }
                         catch (Exception ex)
                         {
-                            MyCommond.WriteLog(ThisReceive, $"ERROR\nOffset_Row_Exit:{Offset_Row_Exit}\nitem:{item.ToString()}");
+                            MyCommond.WriteLog(ThisReceive, $"ERROR\tOffset_Row_Exit:{Offset_Row_Exit}\nitem:{item.ToString()}");
                         }
 
+                        if (MainServer.globalCommond.Using_Mode == ExecutionMode.Debug) MyCommond.WriteLog(ThisReceive, $"Column:{Offset_Column,4}, Row Entry:{Offset_Row_Entry,4}, Row Exit:{Offset_Row_Exit,4}, temp:{item.ToString()}");
                         if (Offset_Column > -1 && Offset_Row_Entry > -1 && Offset_Row_Exit > -1)
                         {
                             rd[Offset_Row_Entry, Offset_Column * 2 + 0]++;
@@ -3531,7 +3585,8 @@ namespace Report.Mrt
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                    //throw ex;
                 }
                 string exportpath = MyCommond.Path_Program + MyCommond.Path_Report + @"環狀線\" + string.Format(MyCommond.Path_Date, MainServer.OperationDate.ToString("yyyy.MM.dd"));
 
@@ -3560,11 +3615,40 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
         }
+
+        private int checkMobileColumn(string issuer, string cardSn)
+        {
+            int result = -1;
+            string m_issuer = issuer;
+            var ColumnString = MainServer.globalCommond.Stock_Mrt_IssureCode.FindAll(x => x.IssuerRawTag != 0);
+            try
+            {
+                if (issuer == "TWQR悠遊卡")
+                {
+                    string check_Sam = cardSn.Substring(0, 5);
+
+                    // 20105 全盈+pay(pluspay)    issuer:29
+                    // 20183 玉山Wallet(玉山錢包) issuer:34
+                    /**/ if (check_Sam == "20105") m_issuer = ColumnString.Find(x => x.Num == 29).ChName;
+                    else if (check_Sam == "20183") m_issuer = ColumnString.Find(x => x.Num == 34).ChName;
+                }
+                result = ColumnString.Find(x => x.ChName == m_issuer).IssuerRawTag;
+
+                result--;
+            }
+            catch (Exception ex)
+            {
+                MyCommond.WriteLog(ThisReceive, $"ERROR\tOffset_Column:{result}\tissuer:{issuer.ToString()}");
+            }
+            return result;
+        }
+
         #endregion
 
         #endregion
@@ -3584,7 +3668,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3604,7 +3689,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3624,7 +3710,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3644,7 +3731,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3664,7 +3752,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3684,7 +3773,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3704,7 +3794,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3724,7 +3815,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3744,7 +3836,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3764,7 +3857,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3784,7 +3878,8 @@ namespace Report.Mrt
             }
             catch (Exception ex)
             {
-                throw ex;
+                MyCommond.WriteLog(ThisReceive, "ERROR!\t");
+                //throw ex;
             }
 
             Status = StatusEnum.Finish;
@@ -3839,9 +3934,9 @@ namespace Report.Mrt
         {
             string Result_str = m_Data;
             List<MrtStationList> Result_List = MainServer.globalCommond.Stock_Mrt_Y_Station;
-            if (Result_List.FindIndex(x => x.CodeName == m_Data) > -1)
+            if (Result_List.FindIndex(x => x.CodeName1 == m_Data) > -1)
             {
-                Result_str = Result_List.Find(x => x.CodeName == m_Data).StationName;
+                Result_str = Result_List.Find(x => x.CodeName1 == m_Data).StationName1;
             }
             return Result_str;
         }
@@ -3928,7 +4023,7 @@ namespace Report.Mrt
                 {
                     ErrorString += $"判斷進站\t";
 
-                    string tempI = station.Find(x => x.StationName == m_Entry).Company;
+                    string tempI = station.Find(x => x.StationName1 == m_Entry).Company1;
                     if (tempI == "台北捷運") { EntryCompany = "1"; }
                     else if (tempI == "新北捷運") { EntryCompany = "2"; }
                 }
@@ -3941,7 +4036,7 @@ namespace Report.Mrt
                 {
                     ErrorString += $"判斷出站\n";
 
-                    string tempO = station.Find(x => x.StationName == m_Exit).Company;
+                    string tempO = station.Find(x => x.StationName1 == m_Exit).Company1;
                     if (tempO == "台北捷運") { ExitCompany = "1"; }
                     else if (tempO == "新北捷運") { ExitCompany = "2"; }
                 }
@@ -3970,9 +4065,9 @@ namespace Report.Mrt
         private int StationRowCheck(List<MrtStationList> msl, string StationName)
         {
             int result = -1;
-            if (StationName != "NULL") { result = msl.FindIndex(x => x.StationName == StationName); }
-            if (result == -1) { result = msl.FindIndex(x => x.StationName == $"Y{StationName}"); }
-            if (result == -1) { result = msl.FindIndex(x => x.StationName == $"{StationName}民生"); }
+            if (StationName != "NULL") { result = msl.FindIndex(x => x.StationName1 == StationName); }
+            if (result == -1) { result = msl.FindIndex(x => x.StationName1 == $"Y{StationName}"); }
+            if (result == -1) { result = msl.FindIndex(x => x.StationName1 == $"{StationName}民生"); }
             if (result != -1) { }
             return result;
         }
@@ -3981,12 +4076,12 @@ namespace Report.Mrt
         {
             int RideCounts = 0;
 
-            var stationCounts = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company == "新北捷運");
+            var stationCounts = MainServer.globalCommond.Stock_Mrt_Y_Station.FindAll(x => x.Company1 == "新北捷運");
             string[,] ODReport_Planning = new string[stationCounts.Count + 2, stationCounts.Count + 2];
             for (int i = 0; i < stationCounts.Count; i++)
             {
-                ODReport_Planning[0, i + 1] = stationCounts[i].StationName;
-                ODReport_Planning[i + 1, 0] = stationCounts[i].StationName;
+                ODReport_Planning[0, i + 1] = stationCounts[i].StationName1;
+                ODReport_Planning[i + 1, 0] = stationCounts[i].StationName1;
             }
             ODReport_Planning[0, ODReport_Planning.GetLength(1) - 1] = "NULL";
             ODReport_Planning[ODReport_Planning.GetLength(0) - 1, 0] = "NULL";
@@ -3996,10 +4091,10 @@ namespace Report.Mrt
                 if (false) MyCommond.WriteLog(ThisReceive, item.ToString());
                 int EntryIndex = ODReport_Planning.GetLength(0) - 1;
                 int ExitIndex = ODReport_Planning.GetLength(1) - 1;
-                if (item.M_Entry != "NULL") EntryIndex = stationCounts.FindIndex(x => x.StationName == item.M_Entry) + 1;
-                if (item.M_Exit != "NULL") ExitIndex = stationCounts.FindIndex(x => x.StationName == item.M_Exit) + 1;
-                if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName == $"Y{item.M_Exit}") + 1;
-                if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName == $"{item.M_Exit}民生") + 1;
+                if (item.M_Entry != "NULL") EntryIndex = stationCounts.FindIndex(x => x.StationName1 == item.M_Entry) + 1;
+                if (item.M_Exit != "NULL") ExitIndex = stationCounts.FindIndex(x => x.StationName1 == item.M_Exit) + 1;
+                if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName1 == $"Y{item.M_Exit}") + 1;
+                if (ExitIndex == 0) ExitIndex = stationCounts.FindIndex(x => x.StationName1 == $"{item.M_Exit}民生") + 1;
                 if (EntryIndex == 0 || ExitIndex == 0)
                 {
                     MyCommond.WriteLog(ThisReceive, $"Error! EntryIndex:{EntryIndex,4}, ExitIndex:{ExitIndex,4}");

@@ -868,7 +868,7 @@ namespace Report.Mrt
             }
             MyCommond.WriteLog(ThisReceive, $"出站變數共 {ls_O.Count} 項，{ls_O_str.Substring(0, ls_O_str.Length - 1)}");
 
-            List<string> station2 = (from p in station1 select p.CodeName).ToList();
+            List<string> station2 = (from p in station1 select p.CodeName1).ToList();
             MyCommond.WriteLog(ThisReceive, $"取出全車站代號共 {station2.Count} 項");
             //List<string> stationTransfer = (from x in station_ where x.CodeName == "82" || x.CodeName == "83" || x.CodeName == "209" || x.CodeName == "210" select x.StationName).ToList();
             string[] sss = new string[] { "板橋", "新埔" };
@@ -877,9 +877,9 @@ namespace Report.Mrt
             {
                 foreach (var jtem in sss)
                 {
-                    if (System.Text.RegularExpressions.Regex.IsMatch(item.StationName, jtem))
+                    if (System.Text.RegularExpressions.Regex.IsMatch(item.StationName1, jtem))
                     {
-                        stationTransfer2.Add(item.StationName);
+                        stationTransfer2.Add(item.StationName1);
                     }
                 }
             }
@@ -1004,7 +1004,7 @@ namespace Report.Mrt
                 /*-----*/ //CARD_TXN_SUBTYPE_ID = Check_TxnSubType((p.ISSUER_ID == "255") ? (Ele_Iss.ECC) : ((p.ISSUER_ID == "9") ? (Ele_Iss.Ipass) : ((p.ISSUER_ID == "11") ? (Ele_Iss.Icash) : (Ele_Iss.NA))), p.CARD_TXN_SUBTYPE_ID, ref _txnsub),
                 /*------------------*/ DEV_ID = p.DEV_ID,
                 /*-----------*/ TXN_TIMESTAMP = p.TXN_TIMESTAMP,
-                /*--------*/ CARD_PHYSICAL_ID = p.CARD_PHYSICAL_ID,
+                /*--------*/ CARD_PHYSICAL_ID = Check_CardId(p.CARD_PHYSICAL_ID, p.ISSUER_ID, p.SAM_ID),
                 /*---------------*/ ISSUER_ID = _issuer,
                 /*---------------*/ //ISSUER_ID = Check_IssuerId(p.ISSUER_ID, p.CARD_TXN_TYPE_ID, ref _issuer),
                 /*---------*/ CARD_TXN_SEQ_NO = p.CARD_TXN_SEQ_NO,
@@ -1029,6 +1029,7 @@ namespace Report.Mrt
                 /*--*/ FIRST_UTILISATION_DATE = p.FIRST_UTILISATION_DATE,
                 /*-----*/ UP_UTILISATION_DATE = p.UP_UTILISATION_DATE,
                 /*---*/ LAST_UTILISATION_DATE = p.LAST_UTILISATION_DATE,
+                /*-------------------*/SAM_ID = p.SAM_ID,
                 /*-----------------*/ M_Entry = $"{Check_IO(station_Od, E2.Entry, _entry, _exit)}",
                 /*------------------*/ M_Exit = $"{Check_IO(station_Od, E2.Exit, _entry, _exit)}",
                 /*--------------*/ TicketType = $"{Check_TicketType(_issuer2, p.CARD_TXN_TYPE_ID, p.CARD_TXN_SUBTYPE_ID, p.FARE_PRODUCT_TYPE_ID, p.TICKET_SUBTYPE_ID, ref _ticketType)}",
@@ -1388,6 +1389,25 @@ namespace Report.Mrt
 
         #region 原本
 
+        private string Check_CardId(string cardId, string issuer, string samId)
+        {
+            string m_card = cardId;
+            string m_str = $"CardId:{cardId,20}, Issuer:{issuer,4}, SamId:{samId,16}, ";
+            if (issuer == "31")
+            {
+
+                m_card = $"{samId}{cardId.PadLeft(16, '0')}";
+                m_str += $"NewCardId:{m_card,20}, ";
+            }
+            else
+            {
+                m_str += $"CardId:{cardId,20}, ";
+            }
+
+            if (globalCommond.Using_Mode == ExecutionMode.Debug) MyCommond.WriteLog(ThisReceive, m_str);
+            return m_card;
+        }
+
         private string Check_TxnType(string m_Data, ref string _result)
         {
             _result = m_Data;
@@ -1477,9 +1497,9 @@ namespace Report.Mrt
             if (_result != "NULL")
             {
                 List<MrtStationList> Result_List = globalCommond.Stock_Mrt_Y_Station;
-                if (Result_List.FindIndex(x => x.CodeName == m_Data) > -1)
+                if (Result_List.FindIndex(x => x.CodeName1 == m_Data) > -1)
                 {
-                    _result = Result_List.Find(x => x.CodeName == m_Data).StationName;
+                    _result = Result_List.Find(x => x.CodeName1 == m_Data).StationName1;
                 }
             }
             return _result;
@@ -1710,7 +1730,7 @@ namespace Report.Mrt
                 {
                     ErrorString += $"判斷進站\t";
 
-                    string tempI = station.Find(x => x.StationName == m_Entry).Company;
+                    string tempI = station.Find(x => x.StationName1 == m_Entry).Company1;
                     if (tempI == "台北捷運") { EntryCompany = "1"; }
                     else if (tempI == "新北捷運") { EntryCompany = "2"; }
                 }
@@ -1723,7 +1743,7 @@ namespace Report.Mrt
                 {
                     ErrorString += $"判斷出站\n";
 
-                    string tempO = station.Find(x => x.StationName == m_Exit).Company;
+                    string tempO = station.Find(x => x.StationName1 == m_Exit).Company1;
                     if (tempO == "台北捷運") { ExitCompany = "1"; }
                     else if (tempO == "新北捷運") { ExitCompany = "2"; }
                 }
