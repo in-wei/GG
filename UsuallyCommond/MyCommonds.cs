@@ -1548,7 +1548,7 @@ public class MyCommonds
         string[] ExcelWay = new string[] { "xls", "xlsx" };
 
         WriteLog(Receive, $"準備輸出資料筆數: {Data.Count}");
-        if (ec.LastName != "csv" && Data.Count > 110000)
+        if (ec.LastName != "csv" && Data.Count > 100000)
         {
             WriteLog(Receive, "非文字檔輸出，且資料比數超過十萬筆，將副檔名鎖定為csv檔");
             ec.LastName = "csv";
