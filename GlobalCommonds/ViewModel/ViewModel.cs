@@ -232,6 +232,7 @@ namespace GlobalCommond.ViewModel
         public string FIRST_UTILISATION_DATE { get; set; }
         public string UP_UTILISATION_DATE { get; set; }
         public string LAST_UTILISATION_DATE { get; set; }
+        public string SAM_ID { get; set; }
 
         #endregion
 
@@ -265,7 +266,8 @@ namespace GlobalCommond.ViewModel
             $"{USER_PROFILE}," +
             $"{FIRST_UTILISATION_DATE}," +
             $"{UP_UTILISATION_DATE}," +
-            $"{LAST_UTILISATION_DATE},";
+            $"{LAST_UTILISATION_DATE}," +
+            $"{SAM_ID},";
 
         public string ExportTitle_English() => $"" +
             $"CARD_TXN_TYPE_ID," +
@@ -294,7 +296,8 @@ namespace GlobalCommond.ViewModel
             $"USER_PROFILE," +
             $"FIRST_UTILISATION_DATE," +
             $"UP_UTILISATION_DATE," +
-            $"LAST_UTILISATION_DATE,";
+            $"LAST_UTILISATION_DATE," +
+            $"SAM_ID,";
 
         public string ExportTitle_zhTW() => $"" +
             $"交易類別," +
@@ -324,7 +327,8 @@ namespace GlobalCommond.ViewModel
             $"交易身分(PAM使用)," +
             $"定期票續購起始日," +
             $"定期票購票日(首用日)," +
-            $"定期票到期日,";
+            $"定期票到期日," +
+            $"判別綁定金融業者的虛擬卡號,";
 
         #endregion
     } // 捷運交易資料原始載入
@@ -432,6 +436,7 @@ namespace GlobalCommond.ViewModel
         public string FIRST_UTILISATION_DATE { get; set; }
         public string UP_UTILISATION_DATE { get; set; }
         public string LAST_UTILISATION_DATE { get; set; }
+        public string SAM_ID { get; set; }
         public string M_Entry { get; set; }
         public string M_Exit { get; set; }
         public string TicketType { get; set; }
@@ -490,6 +495,7 @@ namespace GlobalCommond.ViewModel
             $"{FIRST_UTILISATION_DATE}," +
             $"{UP_UTILISATION_DATE}," +
             $"{LAST_UTILISATION_DATE}," +
+            $"{SAM_ID}," +
             $"{M_Entry}," +
             $"{M_Exit}," +
             $"{TicketType}," +
@@ -543,6 +549,7 @@ namespace GlobalCommond.ViewModel
             $"FIRST_UTILISATION_DATE," +
             $"UP_UTILISATION_DATE," +
             $"LAST_UTILISATION_DATE," +
+            $"SAM_ID," +
             $"M_Entry," +
             $"M_Exit," +
             $"TicketType," +
@@ -597,6 +604,7 @@ namespace GlobalCommond.ViewModel
             $"定期票續購起始日," +
             $"定期票購票日(首用日)," +
             $"定期票到期日," +
+            $"判別綁定金融業者的虛擬卡號," +
             $"環狀線進站," +
             $"環狀線出站," +
             $"車票種類," +
@@ -642,7 +650,7 @@ namespace GlobalCommond.ViewModel
 
         #endregion
     }
-
+    /**
     public class MrtStationList_Old
     {
         public string CodeName { get; set; }
@@ -657,21 +665,24 @@ namespace GlobalCommond.ViewModel
         public string ExportTitle_zhTW() => "代號,車站,代號2,車站2";
 
     }
-
+    **/
     public class MrtStationList
     {
-        public string CodeName { get; set; }
-        public string StationName { get; set; }
-        public string Company { get; set; }
+        public string Company1 { get; set; }
+        public string CodeName1 { get; set; }
+        public string StationName1 { get; set; }
+        public string Company2 { get; set; }
+        public string CodeName2 { get; set; }
+        public string StationName2 { get; set; }
 
-        public override string ToString() => $"{CodeName},{StationName},{Company},";
+        public override string ToString() => $"{Company1},{CodeName1},{StationName1},{Company2},{CodeName2},{StationName2},";
 
-        public string ExportTitle_English() => "CodeName,StationName,Compaany,";
+        public string ExportTitle_English() => "Compaany1,CodeName1,StationName1,Company2,CodeName2,StationName2,";
 
-        public string ExportTitle_zhTW() => "代號,車站,公司";
+        public string ExportTitle_zhTW() => "公司1,代號1,車站1,公司2,代號2,車站2,";
 
     }
-
+    /**
     public class MrtStationOd
     {
         public string EntryCompany { get; set; }
@@ -710,7 +721,7 @@ namespace GlobalCommond.ViewModel
                 $"運價,";
 
     }
-
+    **/
     public class MrtStationOdList
     {
         public string Operation_Area { get; set; }

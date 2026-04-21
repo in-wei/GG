@@ -555,7 +555,7 @@ Profile Type 15 ,PT15,o,00,16
 兒育退卡,ChildCareRefund,,00,35
 PAM_ATIM自動加值,PamAtimAutoAdd,,00,64
 乘車碼,QRCode,o,0B,98
-捷運商品,MrtMerch,,00,99
+捷運商品,MrtMerch,o,00,99
 Overstaying,Overstaying1,o,00,101
 捷運溢扣,MrtOverpaid,,00,106
 公車溢扣,BusOverpaid,,00,107
@@ -734,6 +734,7 @@ VIP旅遊票_公關專用,TravelPublicRelations,09,32
 北北基好玩卡三日,FunCardThreeDay,08,83
 北北基好玩卡五日,FunCardFiveDay,08,85
 北北基好玩卡貓纜版,FunCardMaoLong,08,86
+捷運公司自有票,MrtOwnTicket,0C,100
 ";
 
         public static readonly string Mrt_TicketType_Csv = @"車票總類,檢查,運量,營收,代號
@@ -901,7 +902,7 @@ NULL,,,1,00
 213,新北產業園區,,
 
 "; // 有需要合併的車站再寫第二組
-        public static readonly string Mrt_Y_StationList = @"代號,車站,公司
+        public static readonly string Mrt_Y_StationList_Old2 = @"代號,車站,公司
 7,松山機場,台北捷運
 8,中山國中,台北捷運
 9,BR南京復興,台北捷運
@@ -1033,6 +1034,139 @@ NULL,,,1,00
 211,Y頭前庄,新北捷運
 212,幸福,新北捷運
 213,新北產業園區,新北捷運
+";
+        public static readonly string Mrt_Y_StationList = @"公司1,代號1,車站1,公司2,代號2,車站2
+台北捷運,7,松山機場,,,
+台北捷運,8,中山國中,,,
+台北捷運,9,BR南京復興,,,
+台北捷運,10,BR忠孝復興,,,
+台北捷運,11,BR大安,,,
+台北捷運,12,科技大樓,,,
+台北捷運,13,六張犁,,,
+台北捷運,14,麟光,,,
+台北捷運,15,辛亥,,,
+台北捷運,16,萬芳醫院,,,
+台北捷運,17,萬芳社區,,,
+台北捷運,18,木柵,,,
+台北捷運,19,動物園,,,
+台北捷運,21,大直,,,
+台北捷運,22,劍南路,,,
+台北捷運,23,西湖,,,
+台北捷運,24,港墘,,,
+台北捷運,25,文德,,,
+台北捷運,26,內湖,,,
+台北捷運,27,大湖公園,,,
+台北捷運,28,葫洲,,,
+台北捷運,29,東湖,,,
+台北捷運,30,南港軟體園區,,,
+台北捷運,31,BR南港展覽館,,,
+台北捷運,32,小碧潭,,,
+台北捷運,33,新店,,,
+台北捷運,34,新店區公所,,,
+台北捷運,35,七張,,,
+台北捷運,36,大坪林,,,
+台北捷運,37,景美,,,
+台北捷運,38,萬隆,,,
+台北捷運,39,公館,,,
+台北捷運,40,台電大樓,,,
+台北捷運,41,古亭,,,
+台北捷運,42,中正紀念堂,,,
+台北捷運,43,小南門,,,
+台北捷運,45,頂溪,,,
+台北捷運,46,永安市場,,,
+台北捷運,47,景安,,,
+台北捷運,48,南勢角,,,
+台北捷運,50,台大醫院,,,
+台北捷運,51,BL台北車站,,,
+台北捷運,52,R台北車站,,,
+台北捷運,53,R中山,,,
+台北捷運,54,雙連,,,
+台北捷運,55,R民權西路,,,
+台北捷運,56,圓山,,,
+台北捷運,57,劍潭,,,
+台北捷運,58,士林,,,
+台北捷運,59,芝山,,,
+台北捷運,60,明德,,,
+台北捷運,61,石牌,,,
+台北捷運,62,唭哩岸,,,
+台北捷運,63,奇岩,,,
+台北捷運,64,北投,,,
+台北捷運,65,新北投,,,
+台北捷運,66,復興崗,,,
+台北捷運,67,忠義,,,
+台北捷運,68,關渡,,,
+台北捷運,69,竹圍,,,
+台北捷運,70,紅樹林,,,
+台北捷運,71,淡水,,,
+台北捷運,76,頂埔,,,
+台北捷運,77,永寧,,,
+台北捷運,78,土城,,,
+台北捷運,79,海山,,,
+台北捷運,80,亞東醫院,,,
+台北捷運,81,府中,,,
+台北捷運,82,板橋,新北捷運,209,板橋
+台北捷運,83,新埔,新北捷運,210,新埔民生
+台北捷運,84,江子翠,,,
+台北捷運,85,龍山寺,,,
+台北捷運,86,西門,,,
+台北捷運,88,善導寺,,,
+台北捷運,89,BL忠孝新生,,,
+台北捷運,90,BL忠孝復興,,,
+台北捷運,91,忠孝敦化,,,
+台北捷運,92,國父紀念館,,,
+台北捷運,93,市政府,,,
+台北捷運,94,永春,,,
+台北捷運,95,後山埤,,,
+台北捷運,96,昆陽,,,
+台北捷運,97,南港,,,
+台北捷運,98,BL南港展覽館,,,
+台北捷運,99,象山,,,
+台北捷運,100,台北101/世貿,,,
+台北捷運,101,信義安和,,,
+台北捷運,102,R大安,,,
+台北捷運,103,大安森林公園,,,
+台北捷運,105,北門,,,
+台北捷運,106,G中山,,,
+台北捷運,107,G松江南京,,,
+台北捷運,108,G南京復興,,,
+台北捷運,109,台北小巨蛋,,,
+台北捷運,110,南京三民,,,
+台北捷運,111,松山,,,
+台北捷運,121,輔大,,,
+台北捷運,122,新莊,,,
+台北捷運,123,頭前庄,,,
+台北捷運,124,先嗇宮,,,
+台北捷運,125,三重,,,
+台北捷運,126,菜寮,,,
+台北捷運,127,台北橋,,,
+台北捷運,128,大橋頭,,,
+台北捷運,129,O民權西路,,,
+台北捷運,130,中山國小,,,
+台北捷運,131,行天宮,,,
+台北捷運,132,O松江南京,,,
+台北捷運,133,O忠孝新生,,,
+台北捷運,134,東門,,,
+台北捷運,174,蘆洲,,,
+台北捷運,175,三民高中,,,
+台北捷運,176,徐匯中學,,,
+台北捷運,177,三和國中,,,
+台北捷運,178,三重國小,,,
+台北捷運,179,迴龍,,,
+台北捷運,180,丹鳳,,,
+新北捷運,200,Y大坪林,,,
+新北捷運,201,十四張,,,
+新北捷運,202,秀朗橋,,,
+新北捷運,203,景平,,,
+新北捷運,204,Y景安,,,
+新北捷運,205,中和,,,
+新北捷運,206,橋和,,,
+新北捷運,207,中原,,,
+新北捷運,208,板新,,,
+新北捷運,209,Y板橋,台北捷運,82,板橋
+新北捷運,210,新埔民生,台北捷運,83,新埔
+新北捷運,211,Y頭前庄,,,
+新北捷運,212,幸福,,,
+新北捷運,213,新北產業園區,,,
 ";
         public static readonly string Mrt_Y_Station_Od_List = @"營運路線,路線代號,起站,訖站,全票票價,票差,敬老卡愛心卡愛心陪伴卡及新北市兒童優惠票價,臺北市兒童優惠票價,距離(公里),是否經過環狀線,環狀線距離(公里),環狀線距離比例,環狀線起站,環狀線訖站
 Mrt,-,松山機場,松山機場,20,0,8,12,0,N,0,-,-,-
@@ -25432,9 +25566,9 @@ DROP TABLE #mTempLocation
 
         public static readonly string Config_Subidy /*-------------*/ = @"Subsidy.csv";
         public static readonly string Config_Report /*-------------*/ = @"Report.csv";
-        public static readonly string Config_Mrt_Y_StationList_Old /*----*/ = @"StationList_1.csv";
+        ///public static readonly string Config_Mrt_Y_StationList_Old = @"StationList_1.csv";
         public static readonly string Config_Mrt_Y_StationList /*--------*/ = @"StationList.csv";
-        public static readonly string Config_Mrt_Y_StationOdList_Old /*--*/ = @"MrtStationOdList_Old.csv";
+        ///public static readonly string Config_Mrt_Y_StationOdList_Old = @"MrtStationOdList_Old.csv";
         public static readonly string Config_Mrt_Y_StationOdList /*------*/ = @"StationOdList.csv";
         public static readonly string Config_Mrt_IssureCode /*---------*/ = @"IssureCode.csv";
         public static readonly string Config_Mrt_TxnType /*------------*/ = @"TxnType.csv";
@@ -25498,9 +25632,9 @@ DROP TABLE #mTempLocation
 
         #region 比對數據
 
-        public List<MrtStationList_Old> Stock_Mrt_Y_Station_Old { get; set; }
+        ///public List<MrtStationList_Old> Stock_Mrt_Y_Station_Old { get; set; }
         public List<MrtStationList> Stock_Mrt_Y_Station { get; set; }
-        public List<MrtStationOd> Stock_Mrt_Y_StationOd { get; set; }
+        ///public List<MrtStationOd> Stock_Mrt_Y_StationOd { get; set; }
         public List<ReportFileTemp2> Stock_Mrt_ReportFile2 { get; set; }
         public List<MrtStationOdList> Stock_Mrt_Y_OdList { get; set; }
         public List<OdSubsidy> Stock_Mrt_Subsidy { get; set; }
@@ -25665,6 +25799,10 @@ DROP TABLE #mTempLocation
 
         private void Load_Mrt()
         {
+
+            ///Stock_Mrt_Y_StationOd = Load2Model<MrtStationOd> (MyCommond.Path_Program + MyCommond.Path_Config + UsingSystem + @"\" + OperationCode + @"\" + MyUseFile.Config_Mrt_Y_StationOdList_Old, new MrtStationOd().ExportTitle_zhTW(), MyCreat.UpData_Mrt_Y_StationOdList_Csv, MyCreat.Mrt_Y_StationOd, 1);
+            ///Stock_Mrt_Y_Station_Old = Load2Model<MrtStationList_Old> (MyCommond.Path_Program + MyCommond.Path_Config + UsingSystem + @"\" + OperationCode + @"\" + MyUseFile.Config_Mrt_Y_StationList_Old, new MrtStationList_Old().ExportTitle_zhTW(), MyCreat.UpData_Mrt_Y_StationList_Old_Csv, MyCreat.Mrt_Y_StationList_Old, 1);
+
             Stock_ReportFile /*            */ = Load2Model<ReportFileTemp2> /*                 */ (MyCommond.Path_Program + MyCommond.Path_Config + MyUseFile.Config_Report, /*                                                              */ new ReportFileTemp2().ExportTitle_zhTW(), /*                    */ MyCreat.UpData_Report_Csv, /*                   */ MyCreat.Report_Csv, /*                */ 1);
             Stock_Mrt_IssureCode /*        */ = Load2Model<String_String_Int_Int_Int> /*       */ (MyCommond.Path_Program + MyCommond.Path_Config + UsingSystem + @"\" + OperationCode + @"\" + MyUseFile.Config_Mrt_IssureCode, /*          */ new String_String_Int_Int_Int().ExportTitle_English(), /*       */ MyCreat.UpData_Mrt_IssureCode_Csv, /*           */ MyCreat.Mrt_IssureCode_Csv, /*        */ 1);
             Stock_Mrt_TxnType /*           */ = Load2Model<String_String_String_String_Int> /* */ (MyCommond.Path_Program + MyCommond.Path_Config + UsingSystem + @"\" + OperationCode + @"\" + MyUseFile.Config_Mrt_TxnType, /*             */ new String_String_String_String_Int().ExportTitle_English(), /* */ MyCreat.UpData_Mrt_TxnType_Csv, /*              */ MyCreat.Mrt_TxnType_Csv, /*           */ 1);
@@ -25676,9 +25814,7 @@ DROP TABLE #mTempLocation
             Stock_Mrt_FareProductType /*   */ = Load2Model<String_String_String_Int> /*        */ (MyCommond.Path_Program + MyCommond.Path_Config + UsingSystem + @"\" + OperationCode + @"\" + MyUseFile.Config_Mrt_FareProductType, /*     */ new String_String_String_Int().ExportTitle_English(), /*        */ MyCreat.UpData_Mrt_FareProductType_Csv, /*      */ MyCreat.Mrt_FareProductType_Csv, /*   */ 1);
             Stock_Mrt_TicketType /*        */ = Load2Model<TicketType> /*                      */ (MyCommond.Path_Program + MyCommond.Path_Config + UsingSystem + @"\" + OperationCode + @"\" + MyUseFile.Config_Mrt_TicketType, /*          */ new TicketType().ExportTile_zhTW(), /*                          */ MyCreat.UpData_Mrt_TicketType_Csv, /*           */ MyCreat.Mrt_TicketType_Csv, /*        */ 1);
 
-            Stock_Mrt_Y_StationOd /*       */ = Load2Model<MrtStationOd> /*                    */ (MyCommond.Path_Program + MyCommond.Path_Config + UsingSystem + @"\" + OperationCode + @"\" + MyUseFile.Config_Mrt_Y_StationOdList_Old, /* */ new MrtStationOd().ExportTitle_zhTW(), /*                       */ MyCreat.UpData_Mrt_Y_StationOdList_Csv, /*      */ MyCreat.Mrt_Y_StationOd, /*           */ 1);
             Stock_Mrt_Y_Station /*         */ = Load2Model<MrtStationList> /*                  */ (MyCommond.Path_Program + MyCommond.Path_Config + UsingSystem + @"\" + OperationCode + @"\" + MyUseFile.Config_Mrt_Y_StationList, /*       */ new MrtStationList().ExportTitle_zhTW(), /*                     */ MyCreat.UpData_Mrt_Y_StationList_Csv, /*        */ MyCreat.Mrt_Y_StationList, /*         */ 1);
-            Stock_Mrt_Y_Station_Old /*     */ = Load2Model<MrtStationList_Old> /*              */ (MyCommond.Path_Program + MyCommond.Path_Config + UsingSystem + @"\" + OperationCode + @"\" + MyUseFile.Config_Mrt_Y_StationList_Old, /*   */ new MrtStationList_Old().ExportTitle_zhTW(), /*                 */ MyCreat.UpData_Mrt_Y_StationList_Old_Csv, /*    */ MyCreat.Mrt_Y_StationList_Old, /*     */ 1);
             Stock_Mrt_Y_OdList /*          */ = Load2Model<MrtStationOdList> /*                */ (MyCommond.Path_Program + MyCommond.Path_Config + UsingSystem + @"\" + OperationCode + @"\" + MyUseFile.Config_Mrt_Y_StationOdList, /*     */ new MrtStationOdList().ExportTitle_zhTW(), /*                   */ MyCreat.UpData_Mrt_Y_Station_Od_List_Csv, /*    */ MyCreat.Mrt_Y_Station_Od_List, /*     */ 1);
 
             #region 票差補貼
@@ -25694,12 +25830,12 @@ DROP TABLE #mTempLocation
                 {
                     for (int j = 1; j <= FileLine.Length - 1; j++)
                     {
-                        int SO = Convert.ToInt16(Stock_Mrt_Y_Station_Old[StationCount].CodeName);
-                        int SI = Convert.ToInt16(Stock_Mrt_Y_Station_Old[j - 1].CodeName);
+                        int SO = Convert.ToInt16(Stock_Mrt_Y_Station[StationCount].CodeName1);
+                        int SI = Convert.ToInt16(Stock_Mrt_Y_Station[j - 1].CodeName1);
                         Stock_Mrt_Subsidy.Add(new OdSubsidy()
                         {
-                            EntryStation = Convert.ToString(Stock_Mrt_Y_Station_Old[j - 1].CodeName),
-                            ExitStation = Convert.ToString(Stock_Mrt_Y_Station_Old[StationCount].CodeName),
+                            EntryStation = Convert.ToString(Stock_Mrt_Y_Station[j - 1].CodeName1),
+                            ExitStation = Convert.ToString(Stock_Mrt_Y_Station[StationCount].CodeName1),
                             Num = Convert.ToInt16(FileLine[j])
                         });
                     }
